@@ -34,12 +34,15 @@ func main() {
 		return
 	} else {
 		// fmt.Printf("Private Key: %s\n", key.String())
-		fmt.Printf("Private Key: %s\n", hex.EncodeToString(key.Encode()))
+		x:=hex.EncodeToString(key.Encode())
+
+		fmt.Printf("%d Private Key: %s\n", len(x),x)
 	}
 
 	pub := key.PublicKey()
 	// fmt.Printf("Public Key: %s\n", pub.String())
-	fmt.Printf("Public Key: %s\n", hex.EncodeToString(pub.Encode()))
+	y:=hex.EncodeToString(pub.Encode())
+	fmt.Printf("%d Public Key: %s\n",len(y),y )
 
 	sig, err := key.Sign([]byte(msg), entropy)
 	if err != nil {
