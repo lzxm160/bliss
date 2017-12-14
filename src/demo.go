@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"params"
 	"sampler"
+	"encoding/hex"
 )
 
 func main() {
