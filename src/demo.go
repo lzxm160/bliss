@@ -32,11 +32,13 @@ func main() {
 		fmt.Printf("Error in generating private key: %s\n", err.Error())
 		return
 	} else {
-		fmt.Printf("Private Key: %s\n", key.String())
+		// fmt.Printf("Private Key: %s\n", key.String())
+		fmt.Printf("Private Key: %s\n", hex.EncodeToString(key.Encode()))
 	}
 
 	pub := key.PublicKey()
-	fmt.Printf("Public Key: %s\n", pub.String())
+	// fmt.Printf("Public Key: %s\n", pub.String())
+	fmt.Printf("Public Key: %s\n", hex.EncodeToString(pub.Encode()))
 
 	sig, err := key.Sign([]byte(msg), entropy)
 	if err != nil {
